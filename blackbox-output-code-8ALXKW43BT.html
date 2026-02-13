@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Monitor de Batería Social</title>
+<style>
+  body {
+    margin: 0;
+    background: #0a1226;
+    color: #82d1fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  h1 {
+    margin-top: 20px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #5bf2ff;
+  }
+  .container {
+    display: flex;
+    margin-top: 40px;
+    width: 900px;
+    max-width: 90vw;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .info-box {
+    background: #11253a;
+    border: 1px solid #117bff;
+    border-radius: 10px;
+    padding: 20px 25px;
+    width: 250px;
+    font-size: 16px;
+  }
+  .info-box h2 {
+    color: #5bf2ff;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+  }
+  .info-box .main-text {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+  }
+  .battery {
+    position: relative;
+    width: 150px;
+    height: 280px;
+    background: linear-gradient(180deg, #131313 0%, #282c33 100%);
+    border-radius: 30px;
+    border: 6px solid #0b0d14;
+    box-shadow: 0 0 30px #fb6f0e inset;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+  .battery::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 40%;
+    width: 40px;
+    height: 20px;
+    background: #131313;
+    border-radius: 8px 8px 0 0;
+    border: 6px solid #0b0d14;
+    box-shadow: 0 0 15px #fb6f0e inset;
+  }
+  .fill-level {
+    background: linear-gradient(180deg, #ff9039, #bb4500);
+    width: 100%;
+    height: 35%;
+    box-shadow: 0 0 20px #ff7a00;
+    border-radius: 10px 10px 0 0;
+    transition: height 0.5s ease;
+  }
+  .percentage {
+    text-align: center;
+    font-size: 74px;
+    font-weight: 900;
+    color: #ff7a00;
+    margin-top: 15px;
+  }
+  .bottom-info {
+    width: 900px;
+    max-width: 90vw;
+    margin-top: 50px;
+    color: #6fc9ff;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-around;
+    font-size: 18px;
+  }
+  .bottom-info div {
+    text-align: center;
+    border-right: 1px solid #12589a;
+    padding: 0 20px;
+  }
+  .bottom-info div:last-child {
+    border: none;
+  }
+  .highlight-low {
+    color: #ff5e00;
+    font-weight: 900;
+  }
+  .highlight-points {
+    color: #31d0ff;
+  }
+  .highlight-tired {
+    color: white;
+    font-weight: 900;
+  }
+  .suggested-break {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    color: white;
+    font-weight: 600;
+  }
+  .suggested-break svg {
+    fill: white;
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+  }
+</style>
+</head>
+<body>
+
+<h1>MONITOR DE BATERÍA SOCIAL</h1>
+
+<div class="container">
+  <div class="info-box">
+    <h2>Última interacción</h2>
+    <div class="main-text">Reunión</div>
+    <div>Duración: 1h 20m</div>
+  </div>
+
+  <div class="battery" aria-label="Nivel de batería social">
+    <div class="fill-level" style="height: 35%;"></div>
+  </div>
+
+  <div class="info-box">
+    <h2>Tiempo de recarga</h2>
+    <div class="main-text">2h 45m</div>
+    <div>Descanso recomendado</div>
+    <div class="suggested-break">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M24 44h22a6 6 0 10-12 0h-10a2 2 0 100 4h24v4H22a6 6 0 002 4h24v-4H30a6 6 0 012-11.6V40a6 6 0 01-8-6z"/></svg>
+      <span>Descansar</span> 
+    </div>
+  </div>
+</div>
+
+<div class="bottom-info">
+  <div>
+    Nivel social<br />
+    <span class="highlight-low">BAJO</span>
+  </div>
+  <div>
+    Interacciones hoy<br />
+    <span>4</span>
+  </div>
+  <div>
+    Drenaje de energía<br />
+    <span class="highlight-points">-65 pts</span>
+  </div>
+  <div>
+    Estado de ánimo<br />
+    <span class="highlight-tired">CANSADO</span>
+  </div>
+</div>
+
+</body>
+</html>
